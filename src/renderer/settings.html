@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberBeat Keys - 设置中心</title>
+  <link rel="stylesheet" href="assets/css/settings.css">
+</head>
+<body>
+  <!-- Title Bar -->
+  <div class="titlebar">
+    <div class="title-info">
+      <span>⚡ CyberBeat Keys</span>
+      <span class="title-badge">Arcaea & ACG v8.0</span>
+    </div>
+    <div class="title-actions">
+      <button class="win-btn close" id="btn-close" title="关闭窗口">✕</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="nav-item active" data-tab="tab-theme">
+        <span>🎨</span> 二次元/音游主题 (12套)
+      </div>
+      <div class="nav-item" data-tab="tab-bg">
+        <span>🖼️</span> 背景壁纸与裁剪
+      </div>
+      <div class="nav-item" data-tab="tab-dock">
+        <span>🪟</span> 挂件形态与尺寸调节
+      </div>
+      <div class="nav-item" data-tab="tab-audio">
+        <span>🔊</span> 乐器与敲击音效 (17款)
+      </div>
+      <div class="nav-item" data-tab="tab-test">
+        <span>⌨️</span> 击键打击试玩
+      </div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content">
+      <!-- 1. Anime & Rhythm Themes Tab -->
+      <div class="tab-pane active" id="tab-theme">
+        <div class="section-title">🎨 12 套音游与二次元专属动态主题</div>
+        <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px;">
+          💎 <strong>Arcaea 专属特性已实装</strong>：左手键位自动生成<strong>蓝色音弧 (Blue Arc)</strong>，右手键位生成<strong>红色音弧 (Red Arc)</strong>；长按按键触发<strong>立体 Hold Note 晶彩光柱</strong>！
+        </p>
+
+        <div class="grid-cards">
+          <!-- Arcaea Dual Themes -->
+          <div class="theme-card active" data-theme="arcaea-hikari">
+            <div class="card-icon">🕊️</div>
+            <div class="card-name">Arcaea · 光 (Hikari)</div>
+            <div class="card-desc">琉璃彼方 · 记忆玻璃碎片与纯白蓝光</div>
+          </div>
+          <div class="theme-card" data-theme="arcaea-tairitsu">
+            <div class="card-icon">🥀</div>
+            <div class="card-name">Arcaea · 对立 (Tairitsu)</div>
+            <div class="card-desc">猩红深渊 · 裂隙红晶与暗夜黑曜石</div>
+          </div>
+
+          <!-- Other Iconic Anime Themes -->
+          <div class="theme-card" data-theme="miku-teal">
+            <div class="card-icon">🌟</div>
+            <div class="card-name">初音未来 · 苍绿</div>
+            <div class="card-desc">浮动青色全息音符 (♪ ♫)</div>
+          </div>
+          <div class="theme-card" data-theme="sakura-pink">
+            <div class="card-icon">🌸</div>
+            <div class="card-name">魔法少女 · 樱粉</div>
+            <div class="card-desc">唯美飘逸落樱花瓣与粉霞</div>
+          </div>
+          <div class="theme-card" data-theme="arknights-tech">
+            <div class="card-icon">⚔️</div>
+            <div class="card-name">明日方舟 · 机能金</div>
+            <div class="card-desc">战术工业金菱形晶体</div>
+          </div>
+          <div class="theme-card" data-theme="blue-archive">
+            <div class="card-icon">🌌</div>
+            <div class="card-name">蔚蓝档案 · 圣三一</div>
+            <div class="card-desc">天使羽翼光羽 (🪶) 与光环</div>
+          </div>
+          <div class="theme-card" data-theme="eva-purple">
+            <div class="card-icon">💜</div>
+            <div class="card-name">EVA 初号机 · 暴走紫</div>
+            <div class="card-desc">AT力场六角微粒与暗夜光尘</div>
+          </div>
+          <div class="theme-card" data-theme="pyro-flame">
+            <div class="card-icon">🔥</div>
+            <div class="card-name">原神 · 炽热火神</div>
+            <div class="card-desc">升腾火星与太阳火羽</div>
+          </div>
+          <div class="theme-card" data-theme="phigros-neon">
+            <div class="card-icon">⚡</div>
+            <div class="card-name">Phigros · 官方霓虹</div>
+            <div class="card-desc">全息三角碎片与霓虹光轨</div>
+          </div>
+          <div class="theme-card" data-theme="water-wave">
+            <div class="card-icon">🌊</div>
+            <div class="card-name">鬼灭之刃 · 水之呼吸</div>
+            <div class="card-desc">碧蓝水之波纹浪花粒子</div>
+          </div>
+          <div class="theme-card" data-theme="star-rail">
+            <div class="card-icon">🪐</div>
+            <div class="card-name">星穹铁道 · 银河漫游</div>
+            <div class="card-desc">星神列车璀璨星轨与星尘 (✦)</div>
+          </div>
+          <div class="theme-card" data-theme="touhou-scarlet">
+            <div class="card-icon">🦇</div>
+            <div class="card-name">东方 · 红魔馆夜宴</div>
+            <div class="card-desc">绯红夜之蝙蝠幻影与魔符 (✧)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Custom Background Artwork & Crop Tab -->
+      <div class="tab-pane" id="tab-bg">
+        <div class="section-title">🖼️ 背景预设与自定义立绘壁纸</div>
+        <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px;">
+          选择 Arcaea 官方风格琉璃光影预设，或导入你喜爱的二次元角色立绘壁纸自由裁剪！
+        </p>
+
+        <div class="grid-cards" style="margin-bottom: 16px;">
+          <div class="bg-card active" data-bg="preset-arcaea-hikari">
+            <div class="card-icon">🕊️</div>
+            <div class="card-name">Arcaea · 光 (Hikari)</div>
+            <div class="card-desc">纯白月光苍穹琉璃渐变</div>
+          </div>
+          <div class="bg-card" data-bg="preset-arcaea-tairitsu">
+            <div class="card-icon">🥀</div>
+            <div class="card-name">Arcaea · 对立 (Tairitsu)</div>
+            <div class="card-desc">黑曜石与深邃猩红血月渐变</div>
+          </div>
+          <div class="bg-card" data-bg="preset-miku">
+            <div class="card-icon">🌟</div>
+            <div class="card-name">初音未来 · 苍绿</div>
+            <div class="card-desc">苍绿粉红双色渐变</div>
+          </div>
+          <div class="bg-card" data-bg="preset-sakura">
+            <div class="card-icon">🌸</div>
+            <div class="card-name">魔法少女 · 樱粉</div>
+            <div class="card-desc">唯美樱粉柔光渐变</div>
+          </div>
+          <div class="bg-card" data-bg="preset-blue-archive">
+            <div class="card-icon">🌌</div>
+            <div class="card-name">蔚蓝档案 · 晴空</div>
+            <div class="card-desc">圣三一天空湛蓝渐变</div>
+          </div>
+          <div class="bg-card" data-bg="preset-eva">
+            <div class="card-icon">💜</div>
+            <div class="card-name">EVA · 暴走紫</div>
+            <div class="card-desc">暗夜使徒暗紫荧光渐变</div>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-label">
+            <div class="setting-title">导入本地二次元图片/立绘壁纸</div>
+            <div class="setting-desc" id="label-custom-bg">支持 PNG / JPG / WEBP / GIF 图片</div>
+          </div>
+          <button class="action-btn" id="btn-select-bg">📂 选择图片...</button>
+        </div>
+
+        <div class="section-title" style="margin-top: 10px;">🔍 背景图片裁剪与位置微调</div>
+        
+        <div class="setting-row">
+          <div class="setting-label">
+            <div class="setting-title">水平位置偏移 (Horizontal X)</div>
+            <div class="setting-desc">左右移动图片，对齐角色位置</div>
+          </div>
+          <input type="range" id="range-bg-pos-x" min="0" max="100" step="1" value="50">
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-label">
+            <div class="setting-title">垂直位置偏移 (Vertical Y)</div>
+            <div class="setting-desc">上下移动图片，精准露出角色面部/眼睛</div>
+          </div>
+          <input type="range" id="range-bg-pos-y" min="0" max="100" step="1" value="50">
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-label">
+            <div class="setting-title">图片画面缩放 (Zoom Scale)</div>
+            <div class="setting-desc">放大或缩小背景图片</div>
+          </div>
+          <input type="range" id="range-bg-scale" min="50" max="250" step="5" value="100">
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-label">
+            <div class="setting-title">背景透光不透明度 (Opacity)</div>
+            <div class="setting-desc">调节毛玻璃与插画的透光对比度</div>
+          </div>
+          <input type="range" id="range-bg-opacity" min="0.1" max="0.9" step="0.05" value="0.35">
+        </div>
+      </div>
+
+      <!-- 3. Dock Position & Size Tab -->
+      <div class="tab-pane" id="tab-dock">
+        <div class="section-title">🪟 挂件形态与自由拉伸调节</div>
+        <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px;">
+          💡 <strong>提示</strong>：关闭鼠标穿透后，您可以直接用鼠标<strong>按住挂件右下角手柄自由拉伸任意长宽比</strong>！
+        </p>
+
+        <div class="setting-row">
+          <div class="setting-label">
+            <div class="setting-title">👁️ 显示桌面挂件 (Widget Visible)</div>
+            <div class="setting-desc">开启后在桌面上显示打击流挂件；关闭时隐藏挂件，软件仍驻留后台托盘随时唤出</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="check-widget-visible" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-label">
+            <div class="setting-title">鼠标完全穿透 (Click-Through)</div>
+            <div class="setting-desc">开启后点击穿透挂件；关闭后可鼠标拖拽移动与直接拉伸长宽比</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="check-clickthrough">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-label">
+            <div class="setting-title">挂件长宽形态 (Orientation)</div>
+            <div class="setting-desc">选择横向桌搭长条 或 竖向侧边音游瀑布流</div>
+          </div>
+          <select id="select-orientation">
+            <option value="horizontal">📱 横向长条 (经典横版桌搭)</option>
+            <option value="vertical">🖥️ 竖向长条 (侧边音游瀑布流)</option>
+          </select>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-label">
+            <div class="setting-title">快捷尺寸预设 (重置长宽比)</div>
+            <div class="setting-desc" id="desc-dock-size">选择标准比例</div>
+          </div>
+          <select id="select-dock-size">
+            <option value="compact">📱 极简紧凑 (350 × 135)</option>
+            <option value="standard" selected>💻 标准精致 (400 × 155)</option>
+            <option value="wide">🖥️ 宽屏沉浸 (480 × 160)</option>
+            <option value="large">🎮 巨幕震撼 (520 × 180)</option>
+          </select>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-label">
+            <div class="setting-title">音符打击流方向 (Rhythm Stream Mode)</div>
+            <div class="setting-desc">选择音游下落流 (Arcaea/osu!/DJMAX) 或 上升流 (Phigros)</div>
+          </div>
+          <select id="select-note-dir">
+            <option value="downward">⬇️ 经典垂直下落式 (Arcaea / osu!mania 推荐)</option>
+            <option value="upward">⬆️ 动态律动上升式 (Phigros 风格)</option>
+          </select>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-label">
+            <div class="setting-title">显示判定文字提示 (PURE / FAR)</div>
+            <div class="setting-desc">默认关闭以保持画面清爽纯净，避免遮挡视线</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="check-show-judgment">
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-label">
+            <div class="setting-title">快捷预设停靠位置</div>
+            <div class="setting-desc">一键归位到屏幕四角并重置坐标</div>
+          </div>
+          <select id="select-dock-pos">
+            <option value="bottom-right">↘️ 屏幕右下角</option>
+            <option value="bottom-center">⬇️ 屏幕底部居中</option>
+            <option value="top-center">⬆️ 屏幕顶部居中</option>
+            <option value="bottom-left">↙️ 屏幕左下角</option>
+          </select>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-label">
+            <div class="setting-title">🚀 开机自启动 (Auto-Start on Boot)</div>
+            <div class="setting-desc">Windows 启动并登录桌面后自动在后台开启 CyberBeat Keys</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="check-auto-start">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+
+      <!-- 4. Audio Tab (17 Soundpacks + Custom Audio) -->
+      <div class="tab-pane" id="tab-audio">
+        <div class="section-title">🎹 旋律乐器与高保真击键音效库 (17 款专属音效)</div>
+        <div class="grid-cards">
+          <!-- Arcaea Pure Glass Sound -->
+          <div class="sound-card active" data-sound="arcaea-pure">
+            <div class="card-icon">💎</div>
+            <div class="card-name">Arcaea 纯净玻璃音</div>
+            <div class="card-desc">Pure Glass Memory 清脆空灵微晶</div>
+          </div>
+
+          <!-- Other Melodic Instruments -->
+          <div class="sound-card" data-sound="crystal-piano">
+            <div class="card-icon">🎹</div>
+            <div class="card-name">空灵水晶钢琴</div>
+            <div class="card-desc">五度空灵纯净和弦琴音</div>
+          </div>
+          <div class="sound-card" data-sound="guzheng-pluck">
+            <div class="card-icon">🪕</div>
+            <div class="card-name">古风古筝琵琶</div>
+            <div class="card-desc">中国风五声音阶拨弦</div>
+          </div>
+          <div class="sound-card" data-sound="acoustic-guitar">
+            <div class="card-icon">🎸</div>
+            <div class="card-name">清澈原声吉他</div>
+            <div class="card-desc">温暖尼龙吉他轮指拨弦</div>
+          </div>
+          <div class="sound-card" data-sound="music-box">
+            <div class="card-icon">🔔</div>
+            <div class="card-name">梦幻八音盒</div>
+            <div class="card-desc">神圣清澈八音盒钢片琴</div>
+          </div>
+          <div class="sound-card" data-sound="violin-pizz">
+            <div class="card-icon">🎻</div>
+            <div class="card-name">幻想小提琴拨弦</div>
+            <div class="card-desc">交响乐团跳跃拨弦音</div>
+          </div>
+          <div class="sound-card" data-sound="wooden-fish">
+            <div class="card-icon">🪵</div>
+            <div class="card-name">解压赛博木鱼</div>
+            <div class="card-desc">功德+1 沉浸空灵敲击</div>
+          </div>
+          <div class="sound-card" data-sound="rhythm-hit">
+            <div class="card-icon">🎵</div>
+            <div class="card-name">音游清脆鼓点</div>
+            <div class="card-desc">Phigros / osu! 打击感</div>
+          </div>
+          <div class="sound-card" data-sound="mahjong-thock">
+            <div class="card-icon">🀄</div>
+            <div class="card-name">HiFi 润轴麻将音</div>
+            <div class="card-desc">厚实润轴 Thock 消音</div>
+          </div>
+          <div class="sound-card" data-sound="blue-switch">
+            <div class="card-icon">⚡</div>
+            <div class="card-name">清脆机械青轴</div>
+            <div class="card-desc">双段机械咔哒声</div>
+          </div>
+          <div class="sound-card" data-sound="water-drop">
+            <div class="card-icon">💧</div>
+            <div class="card-name">空灵晶莹水滴</div>
+            <div class="card-desc">治愈清亮水滴声</div>
+          </div>
+          <div class="sound-card" data-sound="laser-gun">
+            <div class="card-icon">🎯</div>
+            <div class="card-name">科幻激光镭射</div>
+            <div class="card-desc">能量光束爆破音</div>
+          </div>
+          <div class="sound-card" data-sound="gun-trigger">
+            <div class="card-icon">🔫</div>
+            <div class="card-name">战术机械上膛</div>
+            <div class="card-desc">特工机械扳机射击音</div>
+          </div>
+          <div class="sound-card" data-sound="cyber-blade">
+            <div class="card-icon">⚔️</div>
+            <div class="card-name">赛博光刃斩击</div>
+            <div class="card-desc">能量光刃破空挥砍</div>
+          </div>
+          <div class="sound-card" data-sound="arcade-8bit">
+            <div class="card-icon">🕹️</div>
+            <div class="card-name">8-Bit 像素旋律</div>
+            <div class="card-desc">五声音阶街机音</div>
+          </div>
+          <div class="sound-card" data-sound="anime-bell">
+            <div class="card-icon">🎐</div>
+            <div class="card-name">二次元和风风铃</div>
+            <div class="card-desc">清脆神圣风铃星光</div>
+          </div>
+          <div class="sound-card" data-sound="custom-audio" id="card-custom-audio">
+            <div class="card-icon">📁</div>
+            <div class="card-name">自定义音频文件</div>
+            <div class="card-desc" id="desc-custom-audio">点击下方按钮导入</div>
+          </div>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-label">
+            <div class="setting-title">导入自定义击键音频 (MP3 / WAV / OGG)</div>
+            <div class="setting-desc" id="label-custom-audio">支持导入你自己喜欢的键盘声或二次元打击音</div>
+          </div>
+          <button class="action-btn" id="btn-select-audio">🎵 导入音频文件...</button>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-label">
+            <div class="setting-title">开启敲击音效</div>
+            <div class="setting-desc">击键时播放 Web Audio 合成音效</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="check-audio-enabled" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-label">
+            <div class="setting-title">连击音高自适应调频</div>
+            <div class="setting-desc">连击数越高，敲击音调逐渐升高增强爽快感</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="check-pitch-mod" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-row">
+          <div class="setting-label">
+            <div class="setting-title">主音量大小</div>
+            <div class="setting-desc">调节敲击打击音量</div>
+          </div>
+          <input type="range" id="range-volume" min="0" max="1" step="0.05" value="0.75">
+        </div>
+      </div>
+
+      <!-- 5. Test Typing Range Tab -->
+      <div class="tab-pane" id="tab-test">
+        <div class="section-title">⌨️ 敲击打击手感试玩区</div>
+        <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 12px;">
+          在此输入框内尝试打字或长按任意键，体验 Arcaea 红蓝左右手音弧与长按 Hold Note 光柱！
+        </p>
+
+        <input type="text" id="input-test-typing" class="test-input" placeholder="👉 点击此处打字或长按按键，体验左右手红蓝音弧与长按光柱...">
+
+        <div class="test-stats">
+          <div class="stat-box">
+            <div class="stat-val" id="stat-combo">0x</div>
+            <div class="stat-name">实时 COMBO</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val" id="stat-wpm">0</div>
+            <div class="stat-name">实时 WPM 手速</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val" id="stat-rank">PURE</div>
+            <div class="stat-name">当前音游评级</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="engine/audioEngine.js"></script>
+  <script src="settings.js"></script>
+</body>
+</html>

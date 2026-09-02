@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>CyberBeat Keys - Anime Rhythm Game Dock</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      user-select: none;
+    }
+    html, body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: transparent !important;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    }
+    #widget-root {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: transparent !important;
+      padding: 0;
+      margin: 0;
+    }
+    #widget-box {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      background: rgba(10, 14, 24, 0.82);
+      border-radius: 16px;
+      border: 1.8px solid rgba(57, 197, 187, 0.7);
+      /* Only use inset glow so there is ZERO dark square artifact on Windows transparent DWM */
+      box-shadow: inset 0 0 16px rgba(57, 197, 187, 0.2);
+      overflow: hidden;
+      cursor: grab;
+      transition: border-color 0.25s ease;
+    }
+    #widget-box:active {
+      cursor: grabbing;
+    }
+    /* Anime Custom / Preset Background Image Layer */
+    #bg-art-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.35;
+      pointer-events: none;
+      border-radius: 14px;
+      transition: opacity 0.3s ease;
+    }
+    #canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 14px;
+      pointer-events: none;
+      z-index: 10;
+    }
+    /* Real-time Corner Resize Handle */
+    #resize-handle {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 18px;
+      height: 18px;
+      cursor: nwse-resize;
+      z-index: 50;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      padding: 3px;
+      opacity: 0.4;
+      transition: opacity 0.2s ease;
+    }
+    #resize-handle:hover {
+      opacity: 1;
+    }
+    #resize-handle::after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid var(--theme-color, #39c5bb);
+      border-bottom: 2px solid var(--theme-color, #39c5bb);
+      border-radius: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div id="widget-root">
+    <div id="widget-box" title="鼠标左键按住可自由拖拽位置，右下角可直接拖拽调整长宽比">
+      <!-- Background Artwork Layer -->
+      <div id="bg-art-layer"></div>
+      <canvas id="canvas"></canvas>
+      <!-- Corner Resize Grip -->
+      <div id="resize-handle" title="按住拖拽自由调节长宽比与尺寸"></div>
+    </div>
+  </div>
+
+  <script src="engine/audioEngine.js"></script>
+  <script src="engine/particleEngine.js"></script>
+  <script src="engine/rhythmKeyEngine.js"></script>
+  <script src="engine/judgmentEngine.js"></script>
+  <script src="engine/comboEngine.js"></script>
+  <script src="overlay.js"></script>
+</body>
+</html>

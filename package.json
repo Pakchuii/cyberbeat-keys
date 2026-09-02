@@ -1,0 +1,55 @@
+{
+  "name": "cyberbeat-keys",
+  "version": "1.0.0",
+  "description": "音游打击感 · 键盘敲击连击特效 & 实时按键可视化桌面挂件",
+  "main": "src/main/index.js",
+  "scripts": {
+    "start": "electron .",
+    "build:hook": "g++ -O3 -std=c++11 native/hook.cpp -o native/hook.exe",
+    "build:exe": "electron-builder --win portable --x64",
+    "build:dir": "electron-builder --win dir --x64"
+  },
+  "keywords": [
+    "rhythm-game",
+    "keystroke-overlay",
+    "cyberpunk",
+    "combo",
+    "wpm",
+    "hifi-keyboard"
+  ],
+  "author": "Antigravity",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^31.3.1",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.antigravity.cyberbeatkeys",
+    "productName": "CyberBeatKeys",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "portable"
+      ],
+      "icon": "build/icon.ico",
+      "signAndEditExecutable": false
+    },
+    "portable": {
+      "artifactName": "CyberBeatKeys-v8.7.exe",
+      "requestExecutionLevel": "admin"
+    },
+    "extraResources": [
+      {
+        "from": "native/hook.exe",
+        "to": "native/hook.exe"
+      }
+    ],
+    "files": [
+      "src/**/*",
+      "native/hook.exe",
+      "package.json"
+    ]
+  }
+}
