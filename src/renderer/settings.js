@@ -29,6 +29,9 @@
   const checkWidgetVisible = document.getElementById('check-widget-visible');
   const checkShowJudgment = document.getElementById('check-show-judgment');
   const checkAutoStart = document.getElementById('check-auto-start');
+  const checkTopmostGuard = document.getElementById('check-topmost-guard');
+  const adminStatusText = document.getElementById('admin-status-text');
+  const gameAdminBanner = document.getElementById('game-admin-banner');
 
   // Audio Controls
   const btnSelectAudio = document.getElementById('btn-select-audio');
@@ -139,6 +142,20 @@
     if (checkWidgetVisible) checkWidgetVisible.checked = cfg.widgetVisible !== false;
     if (checkShowJudgment) checkShowJudgment.checked = Boolean(cfg.showJudgmentText);
     if (checkAutoStart) checkAutoStart.checked = Boolean(cfg.autoStart);
+    if (checkTopmostGuard) checkTopmostGuard.checked = cfg.topmostGuard !== false;
+
+    // Detect and display admin status
+    if (window.electronAPI && window.electronAPI.getAdminStatus && adminStatusText) {
+      window.electronAPI.getAdminStatus().then((isAdmin) => {
+        if (isAdmin) {
+          adminStatusText.innerHTML = '<span style="color: #52c41a;">管理员特权：已生效 (全面支持各类反作弊与全屏窗口化游戏按键捕获)</span>';
+          if (gameAdminBanner) gameAdminBanner.style.borderColor = 'rgba(82, 196, 26, 0.4)';
+        } else {
+          adminStatusText.innerHTML = '<span style="color: #faad14;">管理员特权：未生效 (若高权限游戏内无响应，建议右键以管理员身份运行)</span>';
+          if (gameAdminBanner) gameAdminBanner.style.borderColor = 'rgba(250, 173, 20, 0.4)';
+        }
+      }).catch(() => {});
+    }
 
     // 4. Audio (17 Soundpacks)
     soundCards.forEach((card) => {
@@ -283,6 +300,12 @@
   if (checkAutoStart) {
     checkAutoStart.addEventListener('change', (e) => {
       saveOption('autoStart', e.target.checked);
+    });
+  }
+
+  if (checkTopmostGuard) {
+    checkTopmostGuard.addEventListener('change', (e) => {
+      saveOption('topmostGuard', e.target.checked);
     });
   }
 

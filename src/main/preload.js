@@ -29,6 +29,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
   saveCurrentWindowPosition: () => ipcRenderer.invoke('save-window-bounds'),
 
   // Controls
+  getAdminStatus: () => ipcRenderer.invoke('get-admin-status'),
   setClickThrough: (enabled) => ipcRenderer.invoke('set-clickthrough', enabled),
   openSettings: () => ipcRenderer.invoke('open-settings'),
   closeSettings: () => ipcRenderer.invoke('close-settings'),

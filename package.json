@@ -34,7 +34,8 @@
         "portable"
       ],
       "icon": "build/icon.ico",
-      "signAndEditExecutable": false
+      "signAndEditExecutable": false,
+      "requestedExecutionLevel": "requireAdministrator"
     },
     "portable": {
       "artifactName": "CyberBeatKeys-v8.7.exe",

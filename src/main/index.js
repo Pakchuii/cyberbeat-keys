@@ -146,6 +146,8 @@ function createWidgetWindow() {
     hasShadow: false,
     skipTaskbar: true,
     resizable: true,
+    focusable: false,
+    type: 'toolbar',
     show: isVisible,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
@@ -155,7 +157,7 @@ function createWidgetWindow() {
     }
   });
 
-  widgetWin.setAlwaysOnTop(true, 'screen-saver');
+  widgetWin.setAlwaysOnTop(true, 'screen-saver', 1);
   widgetWin.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
 
   if (config.clickThrough) {
@@ -164,8 +166,14 @@ function createWidgetWindow() {
 
   widgetWin.loadFile(path.join(__dirname, '..', 'renderer', 'overlay.html'));
   if (isVisible) {
-    widgetWin.show();
+    widgetWin.showInactive();
   }
+
+  widgetWin.on('blur', () => {
+    if (widgetWin && !widgetWin.isDestroyed() && configStore && configStore.get('widgetVisible') !== false) {
+      widgetWin.setAlwaysOnTop(true, 'screen-saver', 1);
+    }
+  });
 
   widgetWin.on('closed', () => {
     widgetWin = null;
@@ -337,6 +345,12 @@ function setupTray() {
         click: (item) => updateConfigItem('audioEnabled', item.checked)
       },
       {
+        label: '🎮 游戏置顶增强守护 (Topmost Guard)',
+        type: 'checkbox',
+        checked: config.topmostGuard !== false,
+        click: (item) => updateConfigItem('topmostGuard', item.checked)
+      },
+      {
         label: '🔒 鼠标完全穿透 (Click-Through)',
         type: 'checkbox',
         checked: config.clickThrough,
@@ -372,6 +386,26 @@ function updateConfigItem(key, value) {
   if (refreshTrayMenu) refreshTrayMenu();
 }
 
+let topmostGuardTimer = null;
+function refreshTopmostGuard() {
+  const cfg = configStore ? configStore.getAll() : {};
+  const enabled = cfg.topmostGuard !== false && cfg.widgetVisible !== false;
+  if (!enabled) {
+    if (topmostGuardTimer) {
+      clearInterval(topmostGuardTimer);
+      topmostGuardTimer = null;
+    }
+    return;
+  }
+  if (!topmostGuardTimer) {
+    topmostGuardTimer = setInterval(() => {
+      if (widgetWin && !widgetWin.isDestroyed() && widgetWin.isVisible()) {
+        widgetWin.setAlwaysOnTop(true, 'screen-saver', 1);
+      }
+    }, 1200);
+  }
+}
+
 function broadcastConfig() {
   const config = configStore.getAll();
   if (widgetWin && !widgetWin.isDestroyed()) {
@@ -383,12 +417,14 @@ function broadcastConfig() {
       if (!widgetWin.isVisible()) {
         widgetWin.showInactive();
       }
+      widgetWin.setAlwaysOnTop(true, 'screen-saver', 1);
     }
     widgetWin.webContents.send('config-updated', config);
     widgetWin.setIgnoreMouseEvents(config.clickThrough, { forward: true });
     const bounds = getDockBounds(config);
     widgetWin.setBounds(bounds);
   }
+  refreshTopmostGuard();
   if (settingsWin && !settingsWin.isDestroyed()) {
     settingsWin.webContents.send('config-updated', config);
   }
@@ -424,7 +460,18 @@ function applyAutoStart(enable) {
   }
 }
 
+function isRunningAsAdmin() {
+  if (process.platform !== 'win32') return true;
+  try {
+    require('child_process').execSync('net session', { stdio: 'ignore' });
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 function setupIPC() {
+  ipcMain.handle('get-admin-status', () => isRunningAsAdmin());
   ipcMain.handle('get-config', () => configStore.getAll());
   ipcMain.handle('save-config', (event, newConfig) => {
     if (newConfig.autoStart !== undefined) {
@@ -549,10 +596,21 @@ app.whenReady().then(() => {
     applyAutoStart(true);
   }
 
+  refreshTopmostGuard();
+
   hookManager = new HookManager();
+  let lastTopmostGuardPoke = 0;
   hookManager.on('key', (keyData) => {
     if (widgetWin && !widgetWin.isDestroyed()) {
       widgetWin.webContents.send('key-event', keyData);
+      const now = Date.now();
+      if (now - lastTopmostGuardPoke > 2500) {
+        lastTopmostGuardPoke = now;
+        const currentCfg = configStore ? configStore.getAll() : {};
+        if (currentCfg.topmostGuard !== false && currentCfg.widgetVisible !== false && widgetWin.isVisible()) {
+          widgetWin.setAlwaysOnTop(true, 'screen-saver', 1);
+        }
+      }
     }
   });
   hookManager.start();

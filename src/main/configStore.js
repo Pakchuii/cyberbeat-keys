@@ -40,7 +40,8 @@ const DEFAULT_CONFIG = {
 
   // System
   autoStart: false,
-  widgetVisible: true
+  widgetVisible: true,
+  topmostGuard: true
 };
 
 class ConfigStore {

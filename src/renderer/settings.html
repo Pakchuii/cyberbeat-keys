@@ -295,6 +295,27 @@
             <span class="slider"></span>
           </label>
         </div>
+
+        <div class="setting-row">
+          <div class="setting-label">
+            <div class="setting-title">🎮 游戏防遮挡置顶守护 (Topmost Guard)</div>
+            <div class="setting-desc">持续保持在全屏窗口化/无边框游戏上方最高层级，防止被 DirectX/Direct3D 游戏推至底层</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="check-topmost-guard" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="game-tip-box" id="game-admin-banner" style="background: rgba(64, 169, 255, 0.08); border: 1px solid rgba(64, 169, 255, 0.25); border-radius: 6px; padding: 12px 14px; margin-top: 14px; font-size: 11px; line-height: 1.6; color: var(--text-normal);">
+          <div style="font-weight: bold; margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+            <span>🛡️</span> <span id="admin-status-text">正在检测系统特权状态...</span>
+          </div>
+          <div style="color: var(--text-muted);">
+            • <strong>游戏设置建议</strong>：请在游戏中将【显示模式】设置为<strong>【无边框全屏 (Borderless Windowed)】</strong>或<strong>【全屏窗口化】</strong>（请勿设为独占全屏，独占全屏会绕过 Windows 桌面渲染通道）。<br>
+            • <strong>高权限/反作弊游戏</strong>：部分游戏（如《英雄联盟》《原神》《无畏契约/Valorant》《CS2》等）自带反作弊以管理员权限运行。<strong>本程序已内置管理员提权配置</strong>，若游戏内无敲击反馈，请确保以<strong>管理员身份</strong>运行软件以突破 Windows UIPI 权限隔离。
+          </div>
+        </div>
       </div>
 
       <!-- 4. Audio Tab (17 Soundpacks + Custom Audio) -->

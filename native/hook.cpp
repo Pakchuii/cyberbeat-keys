@@ -102,10 +102,10 @@ DWORD WINAPI WorkerThread(LPVOID lpParam) {
             if (!hasEvent || !g_running) break;
 
             std::string keyName = GetKeyName(evt.vkCode, evt.scanCode, evt.isExtended);
-            bool shift = (GetKeyState(VK_SHIFT) & 0x8000) != 0;
-            bool ctrl = (GetKeyState(VK_CONTROL) & 0x8000) != 0;
-            bool alt = (GetKeyState(VK_MENU) & 0x8000) != 0;
-            bool win = ((GetKeyState(VK_LWIN) & 0x8000) != 0) || ((GetKeyState(VK_RWIN) & 0x8000) != 0);
+            bool shift = (GetAsyncKeyState(VK_SHIFT) & 0x8000) != 0;
+            bool ctrl = (GetAsyncKeyState(VK_CONTROL) & 0x8000) != 0;
+            bool alt = (GetAsyncKeyState(VK_MENU) & 0x8000) != 0;
+            bool win = ((GetAsyncKeyState(VK_LWIN) & 0x8000) != 0) || ((GetAsyncKeyState(VK_RWIN) & 0x8000) != 0);
 
             std::string escapedKey = "";
             for (char c : keyName) {
@@ -166,6 +166,7 @@ DWORD WINAPI StdinWatchThread(LPVOID lpParam) {
 }
 
 int main() {
+    SetPriorityClass(GetCurrentProcess(), HIGH_PRIORITY_CLASS);
     std::ios::sync_with_stdio(false);
     std::cin.tie(NULL);
 
